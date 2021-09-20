@@ -37,6 +37,7 @@ and `55.4 mIoU` on ADE20K for semantic segmentation.
 | Focal-S | IN-1K | No | 224 | 83.6 | 96.2 | 51.1M   | 9.4G   | [download](https://projects4jw.blob.core.windows.net/model/focal-transformer/imagenet1k/focal-small-is224-ws7.pth) |[yaml](configs/focal_small_patch4_window7_224.yaml) |
 | Focal-S | IN-1K | Yes | 224 | 83.8 | 96.5 | 53.1M   | 9.4G   | [download](https://projects4jw.blob.core.windows.net/model/focal-transformer/imagenet1k/focal-small-useconv-is224-ws7.pth) |[yaml](configs/focal_small_useconv_patch4_window7_224.yaml) |
 | Focal-B | IN-1K | No | 224 | 84.0 | 96.5 | 89.8M   | 16.4G  | [download](https://projects4jw.blob.core.windows.net/model/focal-transformer/imagenet1k/focal-base-is224-ws7.pth) | [yaml](configs/focal_base_patch4_window7_224.yaml) |
+| Focal-B | IN-1K | Yes | 224 | 84.2 | 97.1 | 93.3M   | 16.4G  | [download](https://projects4jw.blob.core.windows.net/model/focal-transformer/imagenet1k/focal-base-useconv-is224-ws7.pth) | [yaml](configs/focal_base_useconv_patch4_window7_224.yaml) |
 
 ### Object Detection and Instance Segmentation on [COCO](https://cocodataset.org/#home)
 
