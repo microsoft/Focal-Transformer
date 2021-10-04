@@ -1,4 +1,4 @@
-# Focal Transformer
+# Focal Transformer \[NeurIPS 2021 Spotlight\]
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/focal-self-attention-for-local-global/object-detection-on-coco-minival)](https://paperswithcode.com/sota/object-detection-on-coco-minival?p=focal-self-attention-for-local-global)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/focal-self-attention-for-local-global/object-detection-on-coco)](https://paperswithcode.com/sota/object-detection-on-coco?p=focal-self-attention-for-local-global)
