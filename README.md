@@ -28,18 +28,54 @@ and `55.4 mIoU` on ADE20K for semantic segmentation.
 
 :film_strip: [Video by The AI Epiphany](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjzk6Wm8NHyAhVCqlsKHYepD9wQtwJ6BAgDEAM&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DYH319yyeoVw&usg=AOvVaw27s7EE-txctmc6_BwKnnfE)
 
+## Faster Focal Transformer
+
+As you may notice, though the theoritical GFLOPs of our Focal Transformer is comparable to prior works, its wall-clock efficiency lags behind. Therefore, we are releasing a faster version of Focal Transformer, which discard all the rolling and unfolding operations used in our first version.
+
+| Model | Pretrain | Use Conv | Resolution | acc@1 | acc@5 | #params | FLOPs | Throughput (imgs/s) | Checkpoint | Config |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |:---: | :---: | :---: |
+| Focal-T | IN-1K | No | 224 | 82.2 | 95.9 | 28.9M   | 4.9G   | 319 | [download](https://projects4jw.blob.core.windows.net/model/focal-transformer/imagenet1k/focal-tiny-is224-ws7.pth) | [yaml](configs/focal_tiny_patch4_window7_224.yaml) |
+| Focal-fast-T | IN-1K | Yes  | 224 | 82.4 | 96.0 | 30.2M   | 5.0G   | 483 | [download](https://projects4jw.blob.core.windows.net/model/focal-transformer/imagenet1k/focalv2-tiny-useconv-is224-ws7.pth) | [yaml](configs/focalv2_tiny_useconv_patch4_window7_224.yaml) |
+| Focal-S | IN-1K | No | 224 | 83.6 | 96.2 | 51.1M   | 9.4G   | 192 | [download](https://projects4jw.blob.core.windows.net/model/focal-transformer/imagenet1k/focal-small-is224-ws7.pth) |[yaml](configs/focal_small_patch4_window7_224.yaml) |
+| Focal-fast-S | IN-1K | Yes | 224 | 83.6 | 96.4 | 51.5M   | 9.4G  | 293  | [download](https://projects4jw.blob.core.windows.net/model/focal-transformer/imagenet1k/focalv2-small-useconv-is224-ws7.pth) |[yaml](configs/focalv2_small_useconv_patch4_window7_224.yaml) |
+| Focal-B | IN-1K | No | 224 | 84.0 | 96.5 | 89.8M   | 16.4G  | 138 | [download](https://projects4jw.blob.core.windows.net/model/focal-transformer/imagenet1k/focal-base-is224-ws7.pth) | [yaml](configs/focal_base_patch4_window7_224.yaml) |
+| Focal-fast-B | IN-1K | Yes | 224 | 84.0 | 96.6 | 91.2M   | 16.4G  | 203 | [download](https://projects4jw.blob.core.windows.net/model/focal-transformer/imagenet1k/focalv2-base-useconv-is224-ws7.pth) | [yaml](configs/focalv2_base_useconv_patch4_window7_224.yaml) |
+
 ## Benchmarking 
+
+### Image Classification Throughput with Image Resolution
+
+| Model | Top-1 Acc. | GLOPs (224x224) | 224x224 | 448x448 | 896 x 896  |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+DeiT-Small/16 | 79.8 | 4.6 | 939 | 101 | 20
+PVT-Small	| 79.8	| 3.8	| 794	| 172	| 31 |
+CvT-13	   | 81.6	| 4.5	| 746	| 125	| 14 |
+ViL-Small  | 82.0	| 5.1	| 397	| 87	| 17 |
+Swin-Tiny	| 81.2	| 4.5	| 760	| 189	| 48 |
+Focal-Tiny	| 82.2	| 4.9	| 319	| 105	| 27 |
+PVT-Medium	| 81.2	| 6.7	| 517	| 111	| 20 |
+CvT-21	| 82.5	| 7.1	| 480	| 85	|  10 |
+ViL-Medium	| 83.3	| 9.1	| 251	| 53	| 8 |
+Swin-Small	| 83.1	| 8.7	| 435	| 111	| 28 |
+Focal-Small	| 83.6	| 9.4	| 192	| 63	| 17 |
+ViT-Base/16	| 77.9	| 17.6	| 291	| 57	| 8 |
+Deit-Base/16 | 81.8	| 17.6	| 291	| 57	| 8 |
+PVT-Large	| 81.7	| 9.8	| 352	| 77	| 14 |
+ViL-Base	| 83.2	| 13.4	| 145	| 35	| 5 |
+Swin-Base	| 83.4	| 15.4	| 291	| 70	| 17|
+Focal-Base	| 84.0	| 16.4	| 138	| 44	| 11|
+
 
 ### Image Classification on [ImageNet-1K](https://www.image-net.org/)
 
 | Model | Pretrain | Use Conv | Resolution | acc@1 | acc@5 | #params | FLOPs | Checkpoint | Config |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |:---: | :---: |
 | Focal-T | IN-1K | No | 224 | 82.2 | 95.9 | 28.9M   | 4.9G   | [download](https://projects4jw.blob.core.windows.net/model/focal-transformer/imagenet1k/focal-tiny-is224-ws7.pth) | [yaml](configs/focal_tiny_patch4_window7_224.yaml) |
-| Focal-T | IN-1K | Yes  | 224 | 82.7 | 96.1 | 30.8M   | 4.9G   | [download](https://projects4jw.blob.core.windows.net/model/focal-transformer/imagenet1k/focal-tiny-useconv-is224-ws7.pth) | [yaml](configs/focal_tiny_useconv_patch4_window7_224.yaml) |
+| Focal-T | IN-1K | Yes  | 224 | 82.7 | 96.1 | 30.8M   | 5.2G   | [download](https://projects4jw.blob.core.windows.net/model/focal-transformer/imagenet1k/focal-tiny-useconv-is224-ws7.pth) | [yaml](configs/focal_tiny_useconv_patch4_window7_224.yaml) |
 | Focal-S | IN-1K | No | 224 | 83.6 | 96.2 | 51.1M   | 9.4G   | [download](https://projects4jw.blob.core.windows.net/model/focal-transformer/imagenet1k/focal-small-is224-ws7.pth) |[yaml](configs/focal_small_patch4_window7_224.yaml) |
-| Focal-S | IN-1K | Yes | 224 | 83.8 | 96.5 | 53.1M   | 9.4G   | [download](https://projects4jw.blob.core.windows.net/model/focal-transformer/imagenet1k/focal-small-useconv-is224-ws7.pth) |[yaml](configs/focal_small_useconv_patch4_window7_224.yaml) |
+| Focal-S | IN-1K | Yes | 224 | 83.8 | 96.5 | 53.1M   | 9.7G   | [download](https://projects4jw.blob.core.windows.net/model/focal-transformer/imagenet1k/focal-small-useconv-is224-ws7.pth) |[yaml](configs/focal_small_useconv_patch4_window7_224.yaml) |
 | Focal-B | IN-1K | No | 224 | 84.0 | 96.5 | 89.8M   | 16.4G  | [download](https://projects4jw.blob.core.windows.net/model/focal-transformer/imagenet1k/focal-base-is224-ws7.pth) | [yaml](configs/focal_base_patch4_window7_224.yaml) |
-| Focal-B | IN-1K | Yes | 224 | 84.2 | 97.1 | 93.3M   | 16.4G  | [download](https://projects4jw.blob.core.windows.net/model/focal-transformer/imagenet1k/focal-base-useconv-is224-ws7.pth) | [yaml](configs/focal_base_useconv_patch4_window7_224.yaml) |
+| Focal-B | IN-1K | Yes | 224 | 84.2 | 97.1 | 93.3M   | 16.8G  | [download](https://projects4jw.blob.core.windows.net/model/focal-transformer/imagenet1k/focal-base-useconv-is224-ws7.pth) | [yaml](configs/focal_base_useconv_patch4_window7_224.yaml) |
 
 ### Object Detection and Instance Segmentation on [COCO](https://cocodataset.org/#home)
 

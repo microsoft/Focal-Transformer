@@ -88,6 +88,9 @@ _C.MODEL.FOCAL.USE_CONV_EMBED = False
 _C.MODEL.FOCAL.USE_LAYERSCALE = False
 _C.MODEL.FOCAL.USE_PRE_NORM = False
 
+# Below are specifical for Focal Transformers v2
+_C.MODEL.FOCAL.FOCAL_TOPK = 128
+
 # -----------------------------------------------------------------------------
 # Training settings
 # -----------------------------------------------------------------------------
