@@ -30,7 +30,7 @@ and `55.4 mIoU` on ADE20K for semantic segmentation.
 
 ## Next Generation Architecture
 
-We had developed FocalNet, a next generation of architecture built based on the focal mechanism. It is much faster and effective. Check it out at: [https://github.com/microsoft/FocalNet](https://github.com/microsoft/FocalNet)!
+We had developed [FocalNet](https://arxiv.org/abs/2203.11926), a next generation of architecture built based on the focal mechanism. It is much faster and more effective. Check it out at: [https://github.com/microsoft/FocalNet](https://github.com/microsoft/FocalNet)!
 
 ## Faster Focal Transformer
 
