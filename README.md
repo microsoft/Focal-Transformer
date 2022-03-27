@@ -28,6 +28,10 @@ and `55.4 mIoU` on ADE20K for semantic segmentation.
 
 :film_strip: [Video by The AI Epiphany](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjzk6Wm8NHyAhVCqlsKHYepD9wQtwJ6BAgDEAM&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DYH319yyeoVw&usg=AOvVaw27s7EE-txctmc6_BwKnnfE)
 
+## Next Generation Architecture
+
+We had developed FocalNet, a next generation of architecture built based on the focal mechanism. It is much faster and effective. Check it out at: [https://github.com/microsoft/FocalNet](https://github.com/microsoft/FocalNet)!
+
 ## Faster Focal Transformer
 
 As you may notice, though the theoritical GFLOPs of our Focal Transformer is comparable to prior works, its wall-clock efficiency lags behind. Therefore, we are releasing a faster version of Focal Transformer, which discard all the rolling and unfolding operations used in our first version.
